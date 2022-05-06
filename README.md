@@ -8,10 +8,11 @@ Methods for the regression of the most suited endotracheal tube diameter, based 
 done using empiric methods and old abacus. We directly estimate the correct size, reducing the probability of re-intubation.
 Independent analysis for cuff-less and cuffed tubes.
 
-Three machine learning algorithms are tested:
+Four machine learning algorithms are tested:
 1. Theil-Sen 4th degree Polynomial Regressor (LR)
 2. Random Forest Regressor (RF)
-3. Neural Network (NN)
+3. Gradient Boosting (GB)
+4. Neural Network (NN)
 
 For each method we estimate the percentage of correct estimations, adapted estimations (smaller than ideal but
 still fitting the patient) and incorrect.
@@ -24,49 +25,52 @@ Tracheal tubes size referring to the [Mallinckrodt catalogue](https://akinglobal
         <td></td>
         <td>Correct</td>
         <td>Adapted</td>
-        <td>Not Suited</td>
     </tr>
-    <tr><td rowspan="4">Cuff-less</td></tr>
+    <tr><td rowspan="5">Cuff-less</td></tr>
     <tr>
         <td>LR</td>
-        <td>44.74 %</td>
-        <td>65.79 %</td>
-        <td>34.21 %</td>
-    </tr>
-    <tr>
-        <td>RF</td>
-        <td>28.95 %</td>
-        <td>71.05 %</td>
-        <td>28.95 %</td>
-    </tr>
-    <tr>
-        <td>NN</td>
-        <td>34.21 %</td>
-        <td>65.79 %</td>
-        <td>34.21 %</td>
-    </tr>
-    <tr><td rowspan="4">Cuffed</td></tr>
-    <tr>
-        <td>LR</td>
-        <td>34.21 %</td>
-        <td>57.89 %</td>
-        <td>42.11 %</td>
-    </tr>
-    <tr>
-        <td>RF</td>
         <td>23.68 %</td>
         <td>68.42 %</td>
+    </tr>
+    <tr>
+        <td>RF</td>
         <td>31.58 %</td>
+        <td>71.05 %</td>
+    </tr>
+    <tr>
+        <td>GB</td>
+        <td>39.47 %</td>
+        <td>76.32 %</td>
     </tr>
     <tr>
         <td>NN</td>
-        <td>31.58 %</td>
-        <td>65.79 %</td>
         <td>34.21 %</td>
+        <td>65.79 %</td>
+    </tr>
+    <tr><td rowspan="5">Cuffed</td></tr>
+    <tr>
+        <td>LR</td>
+        <td>26.32 %</td>
+        <td>68.42 %</td>
+    </tr>
+    <tr>
+        <td>RF</td>
+        <td>26.32 %</td>
+        <td>68.42 %</td>
+    </tr>
+<tr>
+        <td>GB</td>
+        <td>36.84 %</td>
+        <td>73.68 %</td>
+    </tr>
+    <tr>
+        <td>NN</td>
+        <td>34.21 %</td>
+        <td>68.42 %</td>
     </tr>
 </table>
 
-Mean Absolute Error: 1.10 mm - Maximum Residual Error: 2.83 mm
+Gradient boosting is overall the best performing algorithm ( Mean Absolute Error: 1.12 mm - Maximum Residual Error: 3.62 mm )
 
 ## How to run
 
